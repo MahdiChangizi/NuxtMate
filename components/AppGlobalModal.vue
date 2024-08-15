@@ -28,12 +28,12 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
-const props = defineProps<{
+const props = defineProps({
   title: {
-    required: true,
-    type: string
+    type: String,
+    required: true
   }
-}>()
+})
 
 const openModal = () => {
   const modal = document.getElementById('my_modal_3') as HTMLDialogElement;

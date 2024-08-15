@@ -49,10 +49,7 @@ onMounted(async () => {
     if (!response.ok) {
       throw new Error('پاسخ شبکه مناسب نبود');
     }
-    users.value = await response.json();
-
-    console.log(users.value);
-    
+    users.value = await response.json();    
   } catch (error) {
     console.error('خطا در دریافت داده‌ها:', error);
   }
