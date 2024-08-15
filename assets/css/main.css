@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/woff2/YekanBakhFaNum-VF.woff2");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/woff2/YekanBakhFaNum-VF.woff2");
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/woff2/YekanBakhFaNum-VF.woff2");
+}
+
+*, body, input {
+    font-family: iranyekan, serif;
+}
