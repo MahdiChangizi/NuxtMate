@@ -2,17 +2,28 @@ import { API_BASE_URL, API_CONFIG } from './connectionConfig';
 import Auth from "./savedData/auth";
 import axios from "axios";
 import type { AxiosResponse } from "axios";
-import { showToast } from '@/services/toastService';
 import { errorHandler } from "@/utils/ResponseHandler";
 import { useGlobalLoadingStore } from '@/stores/globalLoading';
+import { useNuxtApp } from '#app';
 
-export type requestOptionsType = { 
-    data?: object, 
-    headers?: object, 
-    isUseLoading?: boolean, 
-    loadingMessage?: string, 
-    onProgress?: (uploadPercentage: number) => void 
+export type requestOptionsType = {
+    data?: object,
+    headers?: object,
+    isUseLoading?: boolean, // تغییر به boolean به جای false
+    loadingMessage?: string,
+    onProgress?: (uploadPercentage: number) => void
 };
+
+// $showToast
+interface ToastPlugin {
+    (type: string, message: string, description?: string | null): void;
+}
+
+declare module '#app' {
+    interface NuxtApp {
+        $showToast?: ToastPlugin;
+    }
+}
 
 class API {
     private readonly baseUrl: string;
@@ -24,16 +35,15 @@ class API {
     }
 
     private async request(url: string, method: string, options?: requestOptionsType): Promise<AxiosResponse> {
+        const { $showToast } = useNuxtApp();
         const loadingStore = useGlobalLoadingStore();
         let toastId: string | undefined = undefined;
-        
+
         if (!options) options = {};
-        
-        // مدیریت لودینگ برای درخواست‌های GET
-        if (options.isUseLoading && method === 'GET') {
+
+        // فعال‌سازی لودینگ اگر isUseLoading برابر با true باشد
+        if (options.isUseLoading) {
             loadingStore.startLoading();
-        } else if (options.isUseLoading) {
-            toastId =  "در حال ارسال اطلاعات";
         }
 
         try {
@@ -84,25 +94,28 @@ class API {
                 },
             });
 
+            if (options.isUseLoading) {
+                loadingStore.stopLoading();
+            }
+
             if (toastId) {
-                showToast('dismiss', toastId);
+                $showToast?.('dismiss', toastId); // استفاده از optional chaining
             }
             if (method !== 'GET') {
-                showToast('success', 'عملیات با موفقیت انجام شد');
+                $showToast?.('success', 'عملیات با موفقیت انجام شد');
             }
             return response;
         } catch (e) {
-            if (toastId) {
-                showToast('dismiss', toastId);
-            }
-            const errorDetails = errorHandler(e);
-            showToast('error', errorDetails.message);
-            throw e;
-        } finally {
-            // پایان لودینگ برای درخواست‌های GET
-            if (options.isUseLoading && method === 'GET') {
+            if (options.isUseLoading) {
                 loadingStore.stopLoading();
             }
+
+            if (toastId) {
+                $showToast?.('dismiss', toastId);
+            }
+            const errorDetails = errorHandler(e);
+            $showToast?.('error', errorDetails.message);
+            throw e;
         }
     }
 

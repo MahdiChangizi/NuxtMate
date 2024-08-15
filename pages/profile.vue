@@ -27,9 +27,9 @@
     </table>
   </div>
 
-  <div v-else class="flex justify-center">
-    <span class="loading loading-ring loading-lg"></span>
-  </div>
+<!--  <div v-else class="flex justify-center">-->
+<!--    <span class="loading loading-ring loading-lg"></span>-->
+<!--  </div>-->
 </template>
 
 <script setup lang="ts">

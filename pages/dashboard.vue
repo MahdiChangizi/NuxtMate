@@ -3,8 +3,10 @@
     <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">صفحه داشبورد</h1>
     <p class="text-xl">نمایش نوار پیشرفت بین پیمایش‌های صفحه.</p>
   </div>
+  <NuxtLink class="btn btn-primary text-white mb-2 ml-2" :to="{path: 'page-2'}">Test-Page</NuxtLink>
+  <button @click="sendRequest" class="btn btn-primary text-white mb-2">Test-request</button>
 
-  <div v-if="todos.length > 0">
+  <div v-show="!isLoading">
     <ul class="grid grid-cols-4 items-center justify-center">
       <li v-for="todo in todos" :key="todo.id" class="mb-4">
         <img :src="`https://picsum.photos/200?random=${todo.id}`" alt="تصویر تصادفی"
@@ -13,14 +15,15 @@
       </li>
     </ul>
   </div>
-  <div v-else class="flex justify-center">
-    <span class="loading loading-ring loading-lg"></span>
-  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useHead } from '#app'; // اضافه کردن useHead
+import ProductRequests from '~/requests/productRequests';
+
+const { isLoading, startLoading, stopLoading } = useLoading();
+
 
 interface TodoInterface {
   id: number,
@@ -53,6 +56,10 @@ const fetchTodos = async () => {
     console.error('خطا در دریافت داده‌ها:', error);
   }
 };
+
+const sendRequest = () => {
+  ProductRequests.create({name: 'hi'});
+}
 
 onMounted(fetchTodos);
 

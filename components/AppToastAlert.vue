@@ -1,7 +1,7 @@
 <template>
     <transition name="slide-up" @click="close" class="cursor-pointer">
         <div v-show="status" class="toast toast-top toast-center z-[1050]">
-            <div role="alert" class="alert shadow-lg">
+            <div role="alert" class="alert shadow-lg flex items-center justify-center">
                 <div>
                     <h3 v-show="message" class="font-bold">{{ message }}</h3>
                     <div class="text-base font-bold">{{ description }}</div>
@@ -19,6 +19,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import {SymbolKind} from "vscode-languageserver-types";
+import Null = SymbolKind.Null;
 
 const status = ref(true);
 const props = defineProps({
@@ -31,7 +33,7 @@ const props = defineProps({
     },
     description: {
         type: String,
-        // default: 'You have 1 unread message',
+        default: '',
     },
 });
 

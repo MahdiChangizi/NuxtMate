@@ -4,7 +4,6 @@ export const useChangeStatusSidebarStore = defineStore('changeStatusSidebar', {
     }),
     actions: {
         openOrCloseSidebar() {
-            console.log(this.isOpen)
             this.isOpen = !this.isOpen
         },
     }

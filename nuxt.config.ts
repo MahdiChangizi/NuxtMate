@@ -10,4 +10,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  plugins: [
+    '~/plugins/toast.ts',
+    '~/plugins/loading.ts'
+  ]
 })
