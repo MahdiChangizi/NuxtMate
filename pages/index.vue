@@ -5,7 +5,27 @@
     <p class="text-xl">Display a progress bar between page navigations.</p>
   </div>
 
+  <div v-for="data in allData">
+    {{ data.id }} 
+    -
+    {{ data.name }}
+  </div>
+  
 </template>
 
 <script setup lang="ts">
+import ProductRequests from '~/requests/productRequests';
+
+interface model {
+  id: number,
+  name: string
+}
+
+const allData = ref<null | model[]>(null)
+
+onMounted(async () => {
+  const response = await ProductRequests.getAll();
+  allData.value = response.data
+  
+})
 </script>

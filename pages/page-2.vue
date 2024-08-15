@@ -38,10 +38,5 @@
 </template>
 
 <script setup lang="ts">
-import ProductRequests from '~/requests/productRequests';
 
-
-onMounted( () => {
-   ProductRequests.create({name: 'jo'});
-})
 </script>

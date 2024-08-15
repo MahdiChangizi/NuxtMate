@@ -1,7 +1,7 @@
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
@@ -33,7 +33,7 @@ const handleGenericError = (error: { message: string }): ErrorDetail => {
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
@@ -62,7 +62,7 @@ const handleUnauthorizedError = (response: HttpResponse['response']): ErrorDetai
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
@@ -105,7 +105,7 @@ export const errorHandler = (error: any): ErrorDetail => {
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 

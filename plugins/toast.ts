@@ -1,7 +1,7 @@
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
@@ -27,7 +27,7 @@ declare module '@vue/runtime-core' {
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
@@ -65,7 +65,7 @@ const ToastContainer = defineComponent({
 /*
     Written by: "Mahdi Changizi"
     Feel free to reach out to me:
-    My Github: @https://github.com/Mahdichangizi
+    My GitHub: @https://github.com/Mahdichangizi
     My Telegram: @https://t.me/Mahdi_changizi
 */
 
