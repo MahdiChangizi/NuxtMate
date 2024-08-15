@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import {useChangeStatusSidebarStore} from "~/stores/changeStatusSidebar";
+import { useChangeStatusSidebarStore } from "~/stores/changeStatusSidebar";
 const changeStatus = useChangeStatusSidebarStore();
 </script>
+<!--
+  
+  Written by: "Mahdi Changizi"
+  Feel free to reach out to me:
+  My Github: @https://github.com/Mahdichangizi
+  My Telegram: @https://t.me/Mahdi_changizi
 
+-->
 <template>
   <div class="fixed top-[4.7rem] z-10 bg-base-200 w-screen h-full">
     <div class="h-4/5 overflow-y-scroll">
       <ul class="menu rounded-box grid grid-cols-1 w-full text-[1rem] font-bold">
-        <!-- بخش اصلی منو -->
         <li>
           <NuxtLink :to="{ path: 'dashboard' }" @click="changeStatus.openOrCloseSidebar">
             داشبورد
@@ -21,12 +27,12 @@ const changeStatus = useChangeStatusSidebarStore();
         <li>
           <a href="#" @click="changeStatus.openOrCloseSidebar">پیام‌ها</a>
         </li>
-        <li><NuxtLink :to="{path: 'page-2'}" @click="changeStatus.openOrCloseSidebar">تنظیمات</NuxtLink></li>
+        <li>
+          <NuxtLink :to="{ path: 'page-2' }" @click="changeStatus.openOrCloseSidebar">تنظیمات</NuxtLink>
+        </li>
 
-
-        <hr class="my-8 flex dark:border-gray-800 w-full border-t border-dashed"></hr>
-
-        <!-- زیرمنوی 1 -->
+        <hr class="my-8 flex dark:border-gray-800 w-full border-t border-dashed">
+        </hr>
         <li>
           <details>
             <summary>محصولات</summary>
@@ -46,7 +52,6 @@ const changeStatus = useChangeStatusSidebarStore();
           </details>
         </li>
 
-        <!-- زیرمنوی 2 -->
         <li>
           <details>
             <summary>سفارشات</summary>
@@ -66,7 +71,6 @@ const changeStatus = useChangeStatusSidebarStore();
           </details>
         </li>
 
-        <!-- زیرمنوی 3 -->
         <li>
           <details>
             <summary>پشتیبانی</summary>
@@ -86,7 +90,6 @@ const changeStatus = useChangeStatusSidebarStore();
           </details>
         </li>
 
-        <!-- زیرمنوی 4 -->
         <li>
           <details>
             <summary>حساب کاربری</summary>
@@ -109,3 +112,11 @@ const changeStatus = useChangeStatusSidebarStore();
     </div>
   </div>
 </template>
+<!--
+  
+  Written by: "Mahdi Changizi"
+  Feel free to reach out to me:
+  My Github: @https://github.com/Mahdichangizi
+  My Telegram: @https://t.me/Mahdi_changizi
+
+-->

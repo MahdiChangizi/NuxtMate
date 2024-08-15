@@ -1,3 +1,10 @@
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
 import type {SuccessDetail, ErrorDetail, HttpResponse, ValidationErrorResponse} from "./ResponseHandlerInterface";
 
 const handleValidationError = (response: ValidationErrorResponse['response']): ErrorDetail => {
@@ -23,6 +30,14 @@ const handleGenericError = (error: { message: string }): ErrorDetail => {
     };
 };
 
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
+
 const handleNotFoundError = (response: HttpResponse['response']): ErrorDetail => {
     return {
         message: 'خطای 404: صفحه مورد نظر یافت نشد',
@@ -43,6 +58,13 @@ const handleUnauthorizedError = (response: HttpResponse['response']): ErrorDetai
         details: [response.statusText],
     };
 };
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
 
 const handleForbiddenError = (response: HttpResponse['response']): ErrorDetail => {
     return {
@@ -79,6 +101,13 @@ export const errorHandler = (error: any): ErrorDetail => {
     }
     return handleGenericError(error);
 };
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
 
 export const successHandler = (message: string|null): SuccessDetail => {
     return {

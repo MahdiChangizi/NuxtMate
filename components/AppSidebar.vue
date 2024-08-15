@@ -1,12 +1,20 @@
 <script setup lang="ts">
 </script>
 
+<!--
+  
+  Written by: "Mahdi Changizi"
+  Feel free to reach out to me:
+  My Github: @https://github.com/Mahdichangizi
+  My Telegram: @https://t.me/Mahdi_changizi
+
+-->
+
 <template>
   <div class="fixed-scrollable overflow-y-scroll bg-base-100 z-10">
 
     <div class="h-4/5 overflow-y-scroll">
       <ul class="menu rounded-box grid grid-cols-1 w-56 text-[1rem] font-bold">
-        <!-- بخش اصلی منو -->
         <li><NuxtLink :to="{path: 'dashboard'}">داشبورد</NuxtLink></li>
         <li><NuxtLink :to="{path: 'profile'}">پروفایل</NuxtLink></li>
         <li><a href="#">پیام‌ها</a></li>
@@ -14,7 +22,6 @@
 
         <hr class="my-8 flex dark:border-gray-800 w-full border-t border-dashed"></hr>
 
-        <!-- زیرمنوی 1 -->
         <li>
           <details>
             <summary>محصولات</summary>
@@ -34,7 +41,6 @@
           </details>
         </li>
 
-        <!-- زیرمنوی 2 -->
         <li>
           <details>
             <summary>سفارشات</summary>
@@ -54,7 +60,6 @@
           </details>
         </li>
 
-        <!-- زیرمنوی 3 -->
         <li>
           <details>
             <summary>پشتیبانی</summary>
@@ -74,7 +79,6 @@
           </details>
         </li>
 
-        <!-- زیرمنوی 4 -->
         <li>
           <details>
             <summary>حساب کاربری</summary>
@@ -107,3 +111,12 @@
   overflow-x: hidden;
 }
 </style>
+
+<!--
+  
+  Written by: "Mahdi Changizi"
+  Feel free to reach out to me:
+  My Github: @https://github.com/Mahdichangizi
+  My Telegram: @https://t.me/Mahdi_changizi
+
+-->

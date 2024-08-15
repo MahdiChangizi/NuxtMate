@@ -1,13 +1,6 @@
-<!--<template>-->
-<!--  <NuxtLoadingIndicator color="#e2d7d7" :throttle="0" />-->
-<!--  <NuxtLayout>-->
-<!--    <NuxtPage />-->
-<!--  </NuxtLayout>-->
-<!--</template>-->
-
 <template>
   <NuxtLoadingIndicator color="#e2d7d7" :throttle="0" />
-  <AppLoading :isVisible="loadingStore.isLoading" /> <!-- اضافه کردن کامپوننت لودینگ سفارشی -->
+  <AppLoading :isVisible="loadingStore.isLoading" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

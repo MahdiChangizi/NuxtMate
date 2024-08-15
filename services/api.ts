@@ -1,3 +1,11 @@
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
+
 import { API_BASE_URL, API_CONFIG } from './connectionConfig';
 import Auth from "./savedData/auth";
 import axios from "axios";
@@ -9,7 +17,7 @@ import { useNuxtApp } from '#app';
 export type requestOptionsType = {
     data?: object,
     headers?: object,
-    isUseLoading?: boolean, // تغییر به boolean به جای false
+    isUseLoading?: boolean,
     loadingMessage?: string,
     onProgress?: (uploadPercentage: number) => void
 };
@@ -24,6 +32,14 @@ declare module '#app' {
         $showToast?: ToastPlugin;
     }
 }
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
 
 class API {
     private readonly baseUrl: string;
@@ -41,7 +57,6 @@ class API {
 
         if (!options) options = {};
 
-        // فعال‌سازی لودینگ اگر isUseLoading برابر با true باشد
         if (options.isUseLoading) {
             loadingStore.startLoading();
         }
@@ -99,7 +114,7 @@ class API {
             }
 
             if (toastId) {
-                $showToast?.('dismiss', toastId); // استفاده از optional chaining
+                $showToast?.('dismiss', toastId);
             }
             if (method !== 'GET') {
                 $showToast?.('success', 'عملیات با موفقیت انجام شد');
@@ -122,6 +137,13 @@ class API {
     public getUrlFromEndpoint(endpoint: string) {
         return `${this.baseUrl}/${endpoint}`;
     }
+
+    /*
+        Written by: "Mahdi Changizi"
+        Feel free to reach out to me:
+        My Github: @https://github.com/Mahdichangizi
+        My Telegram: @https://t.me/Mahdi_changizi
+    */
 
     public async authRequest(endpoint: string, method: string, options?: requestOptionsType) {
         const token: string = Auth.get();
@@ -147,6 +169,14 @@ class API {
         return await this.authRequest(endpoint, "GET", options);
     }
 
+    /*
+        Written by: "Mahdi Changizi"
+        Feel free to reach out to me:
+        My Github: @https://github.com/Mahdichangizi
+        My Telegram: @https://t.me/Mahdi_changizi
+    */
+
+
     public async authDelete(endpoint: string, options?: requestOptionsType) {
         if (!options) options = {};
         options.loadingMessage = "در حال حذف اطلاعات";
@@ -165,6 +195,13 @@ class API {
         return await this.authRequest(endpoint, "PUT", options);
     }
 }
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
 
 const api = new API(API_BASE_URL, API_CONFIG);
 

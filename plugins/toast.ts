@@ -1,3 +1,10 @@
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
 import { defineNuxtPlugin } from '#app';
 import { createApp, h, ref, defineComponent, defineAsyncComponent, nextTick } from 'vue';
 
@@ -16,6 +23,13 @@ declare module '@vue/runtime-core' {
         $toast?: ToastPlugin;
     }
 }
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
 
 const AppToastAlert = defineAsyncComponent(() =>
     import('../components/AppToastAlert.vue')
@@ -47,6 +61,14 @@ const ToastContainer = defineComponent({
         );
     }
 });
+
+/*
+    Written by: "Mahdi Changizi"
+    Feel free to reach out to me:
+    My Github: @https://github.com/Mahdichangizi
+    My Telegram: @https://t.me/Mahdi_changizi
+*/
+
 
 export default defineNuxtPlugin(nuxtApp => {
     const showToast = (type: string, message: string, description?: string | null) => {
