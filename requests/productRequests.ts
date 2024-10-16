@@ -11,7 +11,7 @@ import type {AxiosResponse} from "axios";
 class ProductRequests {
 
     public static async getAll(): Promise<AxiosResponse> {
-        return await ApiCacheService.authGet(`product`,  {isUseLoading: true});
+        return await ApiCacheService.authGet(`product`,  {isUseLoading: true, isUseCaching: true});
     }
 
     // public static async getProductById(id: number): Promise<AxiosResponse> {

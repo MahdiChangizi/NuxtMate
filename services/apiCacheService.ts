@@ -19,6 +19,7 @@ type RequestOptionsType = {
     data?: Record<string, any>;
     headers?: Record<string, string>;
     isUseLoading?: boolean;
+    isUseCaching?: boolean;
     loadingMessage?: string;
     onProgress?: (uploadPercentage: number) => void;
 };
@@ -61,10 +62,13 @@ class ApiCacheService {
 
         try {
             if (method === 'GET') {
-                const cachedData = await this.cacheManager.get(url);
-                if (cachedData) {
-                    loadingStore.stopLoading();
-                    return { data: cachedData } as AxiosResponse;
+
+                if (options?.isUseCaching) {
+                    const cachedData = await this.cacheManager.get(url);
+                    if (cachedData) {
+                        loadingStore.stopLoading();
+                        return { data: cachedData } as AxiosResponse;
+                    }
                 }
             }
 
@@ -86,7 +90,7 @@ class ApiCacheService {
             const response = await axios(axiosConfig);
 
             if (method === 'GET' && response.status === 200) {
-                await this.cacheManager.set(url, response.data);
+                if (options?.isUseCaching) await this.cacheManager.set(url, response.data);
             } else if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method) && response.status === 200) {
                 await this.cacheManager.remove(url);
             }
